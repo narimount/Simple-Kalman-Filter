@@ -1,0 +1,11 @@
+function H = calcH()
+a = 6378137;
+b = 6356752.3142;
+f = (a-b)/a;
+le0 = 38.940226;
+e = sqrt(f*(1-f));
+Rlat = (a*(1-e^2)*2*pi)/(360*(1-e^2*(sin(le0))^2)^1.5);
+HEIGHT = 54;
+H = [1/(Rlat+HEIGHT), 0; 0, 3.6];
+%H = inv(H);
+%H = Rlat
